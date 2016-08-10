@@ -18,11 +18,23 @@ var divide = function(number1, number2) {
 
 // User Interface Logic
 $(document).ready(function() {
-  $("form#add").submit(function(event) {
+  $(".btn").click(function(event) {
     event.preventDefault();
-    var number1 = parseInt($("#add1").val());
-    var number2 = parseInt($("#add2").val());
-    var result = add(number1, number2);
-    $("#output").text(result);
+    var operator = $(this).attr("id");
+    var number1 = parseInt($("#num1").val());
+    var number2 = parseInt($("#num2").val());
+
+    if(operator==="add"){
+      $(".output").text(add(number1,number2));
+    }
+    else if (operator==="subtract"){
+      $(".output").text(subtract(number1,number2));
+    }
+    else if (operator==="multiply"){
+      $(".output").text(multiply(number1,number2));
+    }
+    else {
+      $(".output").text(divide(number1,number2));
+    }
   });
 });
